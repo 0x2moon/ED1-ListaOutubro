@@ -1,28 +1,25 @@
 #ifndef CHAVEPAR_H
 #define CHAVEPAR_H
+#include <stdbool.h>
 
-struct cpar
-{
-    int size;
-    struct cpnode *start;
-};
-
-struct cpnode
-{
-    char *nome;
-    struct cpnode *next;
-};
+struct cpar;
+struct cpnode;
 
 struct cpar *create_cpar();
 struct cpnode *create_cpnode();
-void destroy_cpar(struct cpar **lls);
 
-char *sAlloc(char *namepoint);
-int __get_Size(struct cpar *lls);
-int __isEmpty(struct cpar *lls);
+struct cpnode *get_cpnode_start(struct  cpar* cparr);
+int get_size(struct cpar*  cparr);
+int get_value(struct cpnode* cpnodee);
 
-void add_first(struct cpar *lls, char *value);
-void add_lest(struct cpar *lls, struct cpnode *lln, char *value);
-void remove_all(struct cpnode *lln);
-void print_lls(struct cpnode *lln);
+int __isEmpty(struct cpar* cparr);
+
+bool set_bool_ispar(struct cpnode *cp);
+bool get_bool_ispar(struct cpnode *cp);
+
+void add_last(struct cpar* cparr, struct cpnode* cpnodee, int value);
+void remove_Allnodes_valuespar(struct cpar *cparr, struct cpnode *cpnodee);
+void destroy_cpar_removeAllnodes(struct cpar **cparr, struct cpnode *cpnodee);
+
+void print_lls(struct cpnode *cpnodee);
 #endif

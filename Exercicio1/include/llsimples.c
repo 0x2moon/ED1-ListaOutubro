@@ -3,6 +3,18 @@
 #include <string.h>
 #include "./../lib/llsimples.h"
 
+struct llsimples
+{
+    int size;
+    struct llnode *start;
+};
+
+struct llnode
+{
+    char *nome;
+    struct llnode *next;
+};
+
 struct llsimples *create_llsimples(){
     struct llsimples *llnew = (struct llsimples *) malloc (sizeof(struct llsimples));
     llnew->size  = 0;
@@ -14,6 +26,12 @@ struct llnode *create_llnode(){
     struct llnode *llnewnode = (struct llnode *) malloc (sizeof(struct llnode));
     return llnewnode;
 }
+
+
+struct llnode *get_start(struct llsimples *lls){
+    return lls->start;
+}
+
 void destroy_llsimples(struct llsimples **lls){
     struct  llsimples *laux = create_llsimples();
     laux = *lls;
@@ -89,16 +107,19 @@ void remove_all(struct llnode *lln){
         remove_all(llnaux->next);       
     }
     free(llnaux);
-    puts("+ um free");
+}
+
+char *get_value(struct llnode *lln){
+    return lln->nome;
 }
 
 void print_lls(struct llnode *lln){
     if (lln != NULL){
-        printf(" -> %s ", lln->nome);
+        printf(" %s -> ", get_value(lln));
         print_lls(lln->next);
     }
     else{  
-        printf(" -> NULL ");
+        printf(" NULL ");
     }
     
 }
