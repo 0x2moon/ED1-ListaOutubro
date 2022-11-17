@@ -20,6 +20,5 @@ int main(){
     print_parking_space(_get_start_parking_space(new_Parking));
     printf("\n\nnumero total de veiculos: %d ", _get_size_spaceFull(new_Parking));
     remove_all(&new_Parking, _get_start_parking_space(new_Parking));
-   
     return 0;
 }
