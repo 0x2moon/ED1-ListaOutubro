@@ -17,10 +17,10 @@ char *sAlloc(char *namepoint);
 struct parking_space *_get_start_parking_space(struct parking *p);
 int _get_id_car(struct parking_space *ps);
 int _get_size_spaceFull(struct parking *p);
-char _get_owner_name(struct  parking_space *p_space);
-char _get_owner_cpf(struct  parking_space *p_space);
-char _get_car_placa(struct  parking_space *p_space);
-char _get_car_mm(struct  parking_space *p_space);
+char *_get_owner_name(struct  parking_space *p_space);
+char *_get_owner_cpf(struct  parking_space *p_space);
+char *_get_car_placa(struct  parking_space *p_space);
+char *_get_car_mm(struct  parking_space *p_space);
 int _isFull(struct parking *_parking);
 int _isEmpty(struct parking *_parking);
 
