@@ -9,7 +9,7 @@ struct __car;
 
 
 struct parking *create_parking(int parking_capacity);
-struct parking_space *create_parking_space(int p_size, char *nome, char *cpf, char *placa, char *mm_car);
+struct parking_space *create_parking_space(struct parking *p, char *nome, char *cpf, char *placa, char *mm_car);
 struct __owner_person *__create_owner_person(char *nome, char *cpf);
 struct __car *__create_car(int p_size, char *nome, char *cpf, char *placa, char *mm_car);
 

@@ -6,7 +6,7 @@
 struct parking{
     int capacity_parking;
     int size_spaceFull;
-
+    int sead_id;
     struct parking_space *start_car;
     struct parking_space *end_car;
 };
@@ -37,6 +37,10 @@ char *sAlloc(char *namepoint){
 
 int _get_id_car(struct parking_space *ps){
     return ps->car_intoSpace->id_car;
+}
+
+int _get_sead_id(struct parking *p){
+    return p->sead_id;
 }
 
 int _get_size_spaceFull(struct parking *p){
@@ -87,14 +91,14 @@ void add_lest(struct parking *_parking, struct parking_space *p_space, char *nom
     if (_isEmpty(_parking) == 1)
     {
         _parking->size_spaceFull++;
-        _parking->start_car = create_parking_space(_parking->size_spaceFull,nome,cpf,placa,mm_car);
+        _parking->start_car = create_parking_space(_parking,nome,cpf,placa,mm_car);
                 
     }else{
 
         if (p_space->next_car == NULL)
         {
             _parking->size_spaceFull++;
-             p_space->next_car = create_parking_space(_parking->size_spaceFull,nome,cpf,placa,mm_car);
+             p_space->next_car = create_parking_space(_parking,nome,cpf,placa,mm_car);
             _parking->end_car  = p_space->next_car;
 
         }else{
@@ -172,14 +176,16 @@ struct parking *create_parking(int parking_capacity){
     New_parking->size_spaceFull   = 0;
     New_parking->start_car = NULL;
     New_parking->end_car   = NULL;
+    New_parking->sead_id = 0;
     return New_parking;
 }
 
-struct parking_space *create_parking_space(int p_size, char *nome, char *cpf, char *placa, char *mm_car){
+struct parking_space *create_parking_space(struct parking *p, char *nome, char *cpf, char *placa, char *mm_car){
     struct parking_space *New_parking_space = (struct parking_space *) malloc (sizeof(struct parking_space));
-    New_parking_space->car_intoSpace = __create_car(p_size,nome,cpf,placa,mm_car);
+    New_parking_space->car_intoSpace = __create_car(_get_sead_id(p)+1,nome,cpf,placa,mm_car);
     New_parking_space->id_car_space  = _get_id_car(New_parking_space);
     New_parking_space->next_car = NULL;
+    p->sead_id++;
     return New_parking_space;
 }
 
