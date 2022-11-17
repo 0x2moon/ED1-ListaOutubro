@@ -39,12 +39,15 @@ struct ltelefonica_node *get_ltelefonica_node_start(struct ltelefonica* lt){
     return lt->start;
 }
 
-struct ltelefonica_node *get_ltelefonica_node_end(struct ltelefonica_node* ltnodes){
-    if (ltnodes->next == NULL)
+struct ltelefonica_node *get_ltelefonica_node_end(struct ltelefonica* lt){
+    struct ltelefonica_node* ltnodes = lt->start;
+    
+    while (ltnodes->next != NULL)
     {
-        return ltnodes;
+        ltnodes = ltnodes->next;
     }
-    get_ltelefonica_node_end(ltnodes->next);
+    return ltnodes;
+    
 }
 
 char *get_name_ltelefonica(struct ltelefonica_node* ltnodes){
@@ -145,6 +148,7 @@ void remove_Onenode(struct ltelefonica *lt, struct ltelefonica_node* ltnodes, ch
     aux = lt->start;
     lt->start = NULL;
     lt->start = aux->next;
+    lt->size--;
     free(aux);
 }
 
@@ -156,4 +160,25 @@ void print_lista_ltelefonica(struct ltelefonica_node* ltnodes){
     }else{
         puts("\n========================================================\nNULL\n========================================================\n");
     }   
+}
+
+
+void print_ficheiro(struct ltelefonica* lt, struct ltelefonica_node* ltnodes){
+
+    FILE *arq_lista = NULL;
+    char *path = "./ficheiro/ficheiro.txt";
+    arq_lista = fopen(path, "a");
+
+    if(arq_lista != NULL){ 
+        if (lt->start == ltnodes){
+            while (ltnodes != NULL)
+            {
+                fprintf(arq_lista, "\n========================================================\nLista telefonica Nome: %s\nLista telefonica Numero: %s\nLista telefonica endereco: %s\n", get_name_ltelefonica(ltnodes),get_num_ltelefonica(ltnodes), get_adress_ltelefonica(ltnodes));
+                ltnodes = ltnodes->next;
+            }
+        }else{
+            fprintf(arq_lista, "\n========================================================\nLista telefonica Nome: %s\nLista telefonica Numero: %s\nLista telefonica endereco: %s\n", get_name_ltelefonica(ltnodes),get_num_ltelefonica(ltnodes), get_adress_ltelefonica(ltnodes));
+        }
+    }
+
 }

@@ -1,5 +1,6 @@
 {
     "files.associations": {
-        "ltelefonica.h": "c"
+        "ltelefonica.h": "c",
+        "stdio.h": "c"
     }
 }

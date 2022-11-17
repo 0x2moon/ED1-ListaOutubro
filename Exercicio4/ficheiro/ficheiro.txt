@@ -1,0 +1,35 @@
+
+========================================================
+Lista telefonica Nome: Glano
+Lista telefonica Numero: Avenida A
+Lista telefonica endereco: +55 67 9 9988-7766
+
+========================================================
+Lista telefonica Nome: Alano
+Lista telefonica Numero: Avenida A
+Lista telefonica endereco: +55 67 9 9988-7766
+
+========================================================
+Lista telefonica Nome: Blano
+Lista telefonica Numero: Avenida A
+Lista telefonica endereco: +55 67 9 9988-7766
+
+========================================================
+Lista telefonica Nome: Clano
+Lista telefonica Numero: Avenida A
+Lista telefonica endereco: +55 67 9 9988-7766
+
+========================================================
+Lista telefonica Nome: Dlano
+Lista telefonica Numero: Avenida A
+Lista telefonica endereco: +55 67 9 9988-7766
+
+========================================================
+Lista telefonica Nome: Elano
+Lista telefonica Numero: Avenida A
+Lista telefonica endereco: +55 67 9 9988-7766
+
+========================================================
+Lista telefonica Nome: Fulano
+Lista telefonica Numero: Avenida A
+Lista telefonica endereco: +55 67 9 9988-7766

@@ -4,27 +4,38 @@
 
 int main(){
    
-    struct ltelefonica *weblista = create_ltelefonica();
-    add_last(weblista, get_ltelefonica_node_start(weblista), "Youtube","+55 67 9 9988-7766","Avenida A");
-    add_last(weblista, get_ltelefonica_node_start(weblista), "AAAA",   "+55 67 9 9988-7766","Avenida A");
-    add_last(weblista, get_ltelefonica_node_start(weblista), "yyyyy",  "+55 67 9 9988-7766","Avenida A");
-    add_last(weblista, get_ltelefonica_node_start(weblista), "uube",   "+55 67 9 9988-7766","Avenida A");
-    add_last(weblista, get_ltelefonica_node_start(weblista), "out",    "+55 67 9 9988-7766","Avenida A");
-    add_last(weblista, get_ltelefonica_node_start(weblista), "ybe",    "+55 67 9 9988-7766","Avenida A");
-    add_last(weblista, get_ltelefonica_node_start(weblista), "yte",    "+55 67 9 9988-7766","Avenida A");
-    print_lista_ltelefonica(get_ltelefonica_node_start(weblista));
-  
-    puts("\n\n\n pesquisando OUT\n\n");
-    search_ltelefonica(weblista,get_ltelefonica_node_start(weblista),"out");
-    puts("\n\n\n pesquisando yte\n\n");
-    search_ltelefonica(weblista,get_ltelefonica_node_start(weblista),"yte");
-    puts("\n\n\n imprimindo\n\n");
-    print_lista_ltelefonica(get_ltelefonica_node_start(weblista));
-    puts("\n\n\n remover\n\n");
-    remove_Onenode(weblista,get_ltelefonica_node_start(weblista),"uube");
-    remove_Onenode(weblista,get_ltelefonica_node_start(weblista),"AAAA"); 
-    puts("\n\n\nimprimindo\n\n\n");
-    print_lista_ltelefonica(get_ltelefonica_node_start(weblista));
-    destroy_lt_removeAllnodes(&weblista, get_ltelefonica_node_start(weblista));
+    struct ltelefonica *lista_telefonica = create_ltelefonica();
+    add_last(lista_telefonica, get_ltelefonica_node_start(lista_telefonica), "Alano","+55 67 9 9988-7766","Avenida A");
+    add_last(lista_telefonica, get_ltelefonica_node_start(lista_telefonica), "Blano",   "+55 67 9 9988-7766","Avenida A");
+    add_last(lista_telefonica, get_ltelefonica_node_start(lista_telefonica), "Clano",  "+55 67 9 9988-7766","Avenida A");
+    add_last(lista_telefonica, get_ltelefonica_node_start(lista_telefonica), "Dlano",   "+55 67 9 9988-7766","Avenida A");
+    add_last(lista_telefonica, get_ltelefonica_node_start(lista_telefonica), "Elano",    "+55 67 9 9988-7766","Avenida A");
+    add_last(lista_telefonica, get_ltelefonica_node_start(lista_telefonica), "Fulano",    "+55 67 9 9988-7766","Avenida A");
+    print_lista_ltelefonica(get_ltelefonica_node_start(lista_telefonica));
+    print_ficheiro(lista_telefonica, get_ltelefonica_node_start(lista_telefonica));
+    
+    add_last(lista_telefonica, get_ltelefonica_node_start(lista_telefonica), "Glano",    "+55 67 9 9988-7766","Avenida A");
+    print_ficheiro(lista_telefonica, get_ltelefonica_node_end(lista_telefonica));
+
+    print_lista_ltelefonica(get_ltelefonica_node_start(lista_telefonica));
+    
+    puts("\n\n\n pesquisando Elano\n\n");
+    search_ltelefonica(lista_telefonica,get_ltelefonica_node_start(lista_telefonica),"Elano");
+    puts("\n\n\n pesquisando Fulano\n\n");
+    search_ltelefonica(lista_telefonica,get_ltelefonica_node_start(lista_telefonica),"Fulano");
+    
+    puts("\n\n\n LISTA TELEFONICA\n\n");
+    print_lista_ltelefonica(get_ltelefonica_node_start(lista_telefonica));
+
+    puts("\n\n\n REMOVENDO - Clano\n\n");
+    remove_Onenode(lista_telefonica,get_ltelefonica_node_start(lista_telefonica),"Clano");
+    puts("\n\n\n REMOVENDO - Fulano\n\n");
+    remove_Onenode(lista_telefonica,get_ltelefonica_node_start(lista_telefonica),"Fulano"); 
+
+    puts("\n\n\n LISTA TELEFONICA\n\n");
+    print_lista_ltelefonica(get_ltelefonica_node_start(lista_telefonica));
+    printf("\n\n\nLISTA TELEFONICA\nTotal de elementos (nomes): %d\n", get_size(lista_telefonica));
+
+    destroy_lt_removeAllnodes(&lista_telefonica, get_ltelefonica_node_start(lista_telefonica));
     return 0;
 }
